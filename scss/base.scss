@@ -1,0 +1,305 @@
+// COLORS
+$hero-bg: #fff3f3;
+$primary-red: #e00505;
+$secondary-red: #fe5f54;
+$green: #709f42;
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;500;700&family=Poppins:wght@900&display=swap');
+
+html {
+	scroll-behavior: smooth;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+
+	&:focus,
+	&:hover {
+		color: inherit;
+	}
+}
+
+a,
+li,
+img,
+button {
+	transition: 350ms cubic-bezier(0.17, 0.85, 0.438, 0.99);
+}
+
+body {
+	font-size: 1.05rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+	overflow-x: hidden;
+}
+
+button {
+	all: unset;
+}
+
+.hero {
+	background-color: $hero-bg;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.btn {
+	border-radius: 10px;
+	padding: 12px 35px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-weight: 800;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: $primary-red;
+	border: none;
+
+	&:hover,
+	&:focus {
+		background-color: darken($primary-red, 5%);
+	}
+}
+
+.btn-secondary {
+	color: $primary-red;
+	background-color: transparent;
+	border: 1px solid $secondary-red;
+
+	&:hover,
+	&:focus {
+		background-color: $primary-red;
+		border: 1px solid transparent;
+	}
+}
+
+.section {
+	margin: 70px auto;
+}
+
+.section__header {
+	margin-top: 70px;
+	text-align: center;
+}
+
+.section__title {
+	font-size: 2.8rem;
+	color: $primary-red;
+	margin-top: 10px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	text-transform: capitalize;
+}
+
+.section__msg {
+	width: 55%;
+	margin: 20px auto 0;
+	font-size: 1rem;
+}
+
+.section__img {
+	width: 20px;
+}
+
+// NAVBAR
+.navbar {
+	padding-top: 50px;
+
+	&__brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		img {
+			width: 50px;
+		}
+
+		&-name {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 700;
+			font-size: 1.25rem;
+			padding-top: 20px;
+			color: $primary-red;
+		}
+	}
+
+	&__links {
+		display: flex;
+		gap: 25px;
+		padding-top: 25px;
+
+		.nav-item {
+			&:hover,
+			&:focus {
+				color: $primary-red;
+			}
+		}
+	}
+}
+
+// HERO CONTENT
+.hero__content {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	margin-top: 80px;
+	justify-content: space-between;
+
+	.content {
+		flex-basis: 60%;
+	}
+
+	.content__title {
+		font-size: 4rem;
+		font-family: 'Poppins', sans-serif;
+		color: $secondary-red;
+	}
+
+	.content__msg {
+		width: 90%;
+	}
+
+	.green {
+		color: $green;
+	}
+
+	.hero-btns {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		margin-top: 40px;
+	}
+
+	.hero-img {
+		position: relative;
+		max-width: 400px;
+
+		.hero-img {
+			position: relative;
+			z-index: 1;
+		}
+
+		.cloud-2 {
+			position: absolute;
+			bottom: 50px;
+			right: 150px;
+			max-width: 300px;
+		}
+
+		.cloud-1 {
+			position: absolute;
+			top: 50px;
+			left: 150px;
+		}
+	}
+}
+
+// COMMUNITY
+.community {
+	background-color: $primary-red;
+	padding: 40px 0;
+	color: #fff;
+
+	&__title {
+		position: relative;
+		font-size: 3rem;
+		font-family: 'Poppins', sans-serif;
+		text-align: center;
+		width: max-content;
+		margin: 0 auto;
+
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			height: 1px;
+			width: 30px;
+			background-color: #fff;
+		}
+
+		&::after {
+			left: -55px;
+		}
+		&::before {
+			right: -50px;
+		}
+	}
+
+	&__social {
+		display: flex;
+		gap: 50px;
+		flex-wrap: wrap;
+		margin-top: 30px;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.6rem;
+		padding-left: 0;
+
+		.community-link {
+			display: grid;
+			place-items: center;
+			cursor: pointer;
+			height: 56px;
+			width: 56px;
+			background-color: #fff;
+			color: $primary-red;
+			border-radius: 50%;
+		}
+	}
+}
+
+// TOKEN INFO
+
+.token-info {
+	&__body {
+		display: flex;
+		gap: 30px;
+		margin-top: 80px;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__img {
+		img {
+			max-width: 400px;
+		}
+	}
+}
+
+.token-list {
+	display: flex;
+	gap: 40px;
+	flex-direction: column;
+
+	.token-item__title {
+		font-size: 1.2rem;
+		font-weight: 800;
+
+		&::before {
+			content: '';
+			position: relative;
+			background-image: url('../img/logo.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			height: 15px;
+			width: 15px;
+			margin-right: 10px;
+			display: inline-block;
+		}
+	}
+
+	.token-item__amount {
+		font-size: 1rem;
+		color: $primary-red;
+		margin-left: 25px;
+		font-weight: 500;
+	}
+}
