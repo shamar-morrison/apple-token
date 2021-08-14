@@ -53,8 +53,11 @@ button {
 	all: unset;
 }
 
-.hero {
+.pink-bg {
 	background-color: $hero-bg;
+}
+
+.hero {
 	min-height: 100vh;
 	min-width: 100vw;
 }
@@ -90,11 +93,11 @@ button {
 }
 
 .section {
-	margin: 70px auto;
+	padding: 90px 0;
 }
 
 .section__header {
-	margin-top: 70px;
+	margin-bottom: 80px;
 	text-align: center;
 }
 
@@ -269,15 +272,16 @@ button {
 .token-info {
 	&__body {
 		display: flex;
-		gap: 30px;
-		margin: 80px 0 120px;
-		justify-content: space-between;
+		gap: 80px;
+		justify-content: center;
 		align-items: center;
 	}
 
 	&__img {
 		img {
 			max-width: 400px;
+			position: relative;
+			left: -50px;
 		}
 	}
 }
@@ -314,14 +318,47 @@ button {
 }
 
 // TOKENOMICS
+
+.tokenomics__features {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 90px;
+	row-gap: 70px;
+	align-items: flex-start;
+	// justify-content: center;
+}
+
 .tokenomics__body {
+	position: relative;
 	display: flex;
 	align-items: center;
 	gap: 90px;
 
+	&:last-child {
+		top: -30px;
+	}
+
 	img {
-			width: 300px;
-		}
+		width: 150px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
+	.apple-1-img {
+		width: 170px;
+	}
+
+	.apple-8-img {
+		width: 190px;
+	}
+
+	.apple-5-img {
+		width: 210px;
+	}
+
+	.apple-6-img {
+		width: 230px;
+	}
 
 	.title {
 		position: relative;
@@ -332,20 +369,20 @@ button {
 		border-radius: $br;
 		padding: 8px 0;
 
-		&::before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: -30px;
-			transform: translateY(-50%) rotate(-90deg);
+		// &::before {
+		// 	content: '';
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	left: -30px;
+		// 	transform: translateY(-50%) rotate(-90deg);
 
-			width: 0px;
-			height: 0px;
-			border-top: 15px solid $primary-red;
-			border-right: 15px solid transparent;
-			border-bottom: 15px solid transparent;
-			border-left: 15px solid transparent;
-		}
+		// 	width: 0px;
+		// 	height: 0px;
+		// 	border-top: 15px solid $primary-red;
+		// 	border-right: 15px solid transparent;
+		// 	border-bottom: 15px solid transparent;
+		// 	border-left: 15px solid transparent;
+		// }
 	}
 
 	.content {
@@ -354,7 +391,12 @@ button {
 		border: 1px solid $primary-red;
 		border-radius: $br;
 		margin: 20px 0 0;
-		// min-height: 200px;
+		box-shadow: -2px 10px 17px -11px rgba(0, 0, 0, 0.21);
+		min-height: 350px;
+
+		&.no-min-height {
+			min-height: 250px;
+		}
 
 		span {
 			display: block;
@@ -363,8 +405,7 @@ button {
 	}
 }
 
-.tokenomics__features {
-	display: flex;
-	flex-direction: column;
-	gap: 100px;
+.tokenomics__img {
+	width: max-content;
+	margin: 0 auto;
 }
