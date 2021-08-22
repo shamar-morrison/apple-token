@@ -42,6 +42,8 @@ a {
 	margin-bottom: 15px;
 }
 
+.questions__wrapper--content,
+.questions__wrapper--title,
 a,
 li,
 img,
@@ -53,7 +55,7 @@ body {
 	font-size: 1.05rem;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
-	line-height: 1.6;
+	line-height: 1.65;
 	overflow-x: hidden;
 }
 
@@ -515,4 +517,56 @@ button {
 .apple-phase-2 {
 	position: relative;
 	left: 6%;
+}
+
+// FAQ
+.faq__questions {
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.questions__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 60%;
+	margin: 0 auto;
+
+	&--title {
+		position: relative;
+		padding: 15px 40px;
+		color: #fff;
+		background-color: $primary-red;
+		border-radius: $radius;
+		font-size: 1.35rem;
+		cursor: pointer;
+		// font-family: 'Montserrat Alternates', sans-serif;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			height: 6px;
+			width: 6px;
+			background-color: #fff;
+			border-radius: 50%;
+
+			transform: translateY(-50%);
+		}
+	}
+
+	&--content {
+		padding: 18px 25px;
+		border: 1px solid $primary-red;
+		border-radius: $radius;
+		transform: scaleY(1);
+		display: none;
+	}
+}
+
+.tab-active {
+	display: flex;
 }
