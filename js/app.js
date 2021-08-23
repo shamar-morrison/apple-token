@@ -17,4 +17,9 @@ const animateFAQ = () => {
 	});
 };
 
+// MOBILE MENU ANIM
+document.querySelector('.mobile-nav').addEventListener('click', e => {
+	document.querySelector('.mobile-menu .navbar__links').classList.toggle('menu-active');
+});
+
 animateFAQ();

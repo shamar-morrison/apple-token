@@ -13,6 +13,38 @@ $anim: cubic-bezier(0.17, 0.85, 0.438, 0.99);
 	border-left: 35px solid transparent;
 }
 
+// MEDIA QUERIES
+
+@mixin xl-screens {
+	@media (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin lg-screens {
+	@media (max-width: 992px) {
+		@content;
+	}
+}
+
+@mixin md-screens {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin sm-screens {
+	@media (max-width: 576px) {
+		@content;
+	}
+}
+
+@mixin xs-screens {
+	@media (max-width: 415px) {
+		@content;
+	}
+}
+
 // ANIMS
 @keyframes scaleY {
 	from {
@@ -76,6 +108,8 @@ a {
 	margin-bottom: 15px;
 }
 
+.mobile-menu,
+.mobile-menu .navbar__links,
 .questions__wrapper--content,
 .questions__wrapper--title,
 a,
@@ -165,6 +199,7 @@ button {
 
 // NAVBAR
 .navbar {
+	position: relative;
 	padding-top: 50px;
 
 	&__brand {
@@ -188,13 +223,70 @@ button {
 	&__links {
 		display: flex;
 		gap: 25px;
-		padding-top: 25px;
 
 		.nav-item {
 			&:hover,
 			&:focus {
 				color: $primary-red;
 			}
+		}
+
+		@include xl-screens() {
+			display: none;
+		}
+	}
+
+	.buy-apple-btn {
+		@include xl-screens() {
+			display: none;
+		}
+	}
+}
+
+.mobile-nav {
+	font-size: 1.3rem;
+	color: $primary-red;
+	display: none;
+
+	@include xl-screens() {
+		display: flex;
+	}
+}
+
+.mobile-menu {
+	display: none;
+
+	@include xl-screens() {
+		display: flex;
+	}
+
+	.navbar__links {
+		position: absolute;
+		display: flex;
+		gap: 20px;
+		right: -50%;
+		padding: 30px 0;
+		width: 100%;
+		flex-direction: column;
+		text-align: center;
+
+		background-color: $primary-red;
+		height: max-content;
+		transform: translate(-50%, -100vh);
+		color: #fff;
+		opacity: 0;
+
+		li {
+			&:hover,
+			&:focus {
+				color: #fff;
+				transform: scale(1.05);
+			}
+		}
+
+		&.menu-active {
+			transform: translate(-50%, 0vh);
+			opacity: 1;
 		}
 	}
 }
@@ -207,18 +299,44 @@ button {
 	margin-top: 80px;
 	justify-content: space-between;
 
+	@include xl-screens() {
+		gap: 60px;
+	}
+
+	@include md-screens() {
+		margin-top: 40px;
+	}
+
 	.content {
 		flex-basis: 60%;
+
+		@include xl-screens() {
+			flex-basis: 100%;
+			text-align: center;
+		}
 	}
 
 	.content__title {
 		font-size: 4rem;
 		font-family: 'Poppins', sans-serif;
 		color: $secondary-red;
+
+		@include md-screens() {
+			font-size: 3rem;
+		}
 	}
 
 	.content__msg {
 		width: 90%;
+
+		@include xl-screens() {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		@include md-screens() {
+			width: 100%;
+		}
 	}
 
 	.green {
@@ -228,8 +346,13 @@ button {
 	.hero-img {
 		position: relative;
 		max-width: 400px;
+		margin: 0 auto 40px;
 
-		.hero-img {
+		@include md-screens() {
+			max-width: 300px;
+		}
+
+		img.hero-img {
 			position: relative;
 			z-index: 1;
 		}
@@ -252,8 +375,13 @@ button {
 .hero-btns {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 30px;
 	margin-top: 40px;
+
+	@include xl-screens() {
+		justify-content: center;
+	}
 }
 
 // COMMUNITY
@@ -270,6 +398,10 @@ button {
 		width: max-content;
 		margin: 0 auto;
 
+		@include sm-screens() {
+			font-size: 2rem;
+		}
+
 		&::after,
 		&::before {
 			content: '';
@@ -278,6 +410,10 @@ button {
 			height: 1px;
 			width: 30px;
 			background-color: #fff;
+
+			@include md-screens() {
+				display: none;
+			}
 		}
 
 		&::after {
@@ -298,6 +434,10 @@ button {
 		font-size: 1.6rem;
 		padding-left: 0;
 
+		@include sm-screens() {
+			gap: 20px;
+		}
+
 		.community-link {
 			display: grid;
 			place-items: center;
@@ -307,6 +447,11 @@ button {
 			background-color: #fff;
 			color: $primary-red;
 			border-radius: 50%;
+
+			@include sm-screens() {
+				height: 45px;
+				width: 45px;
+			}
 		}
 	}
 }
@@ -619,7 +764,7 @@ button {
 
 // FOOTER
 footer {
-	margin: 70px 0;
+	margin-top: 70px;
 }
 
 .footer__wrapper {
@@ -630,14 +775,18 @@ footer {
 	&--left {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 70px;
+
+		.hero-btns {
+			margin-top: 0;
+		}
 	}
 
 	&--right {
 		display: flex;
 		flex-direction: column;
-		justify-content: right;
 		justify-content: space-between;
+		gap: 50px;
 	}
 
 	&--social {
@@ -678,6 +827,12 @@ footer {
 }
 
 .contact-info {
-	padding-top: 35px;
 	text-align: right;
+}
+
+.copyright {
+	margin: 60px 0 20px;
+	text-align: center;
+	font-size: 0.85rem;
+	font-weight: 700;
 }
