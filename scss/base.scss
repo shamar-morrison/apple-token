@@ -860,10 +860,18 @@ footer {
 	gap: 20px;
 	justify-content: space-between;
 
+	@include xl-screens() {
+		gap: 50px;
+	}
+
 	&--left {
 		display: flex;
 		flex-direction: column;
 		gap: 70px;
+
+		@include xl-screens() {
+			gap: 30px;
+		}
 
 		.hero-btns {
 			margin-top: 0;
@@ -875,12 +883,21 @@ footer {
 		flex-direction: column;
 		justify-content: space-between;
 		gap: 50px;
+
+		@include xl-screens() {
+			gap: 20px;
+		}
 	}
 
 	&--social {
 		display: flex;
 		gap: 10px;
 		margin-left: auto;
+
+		@include xl-screens() {
+			margin-left: 0;
+			justify-content: center;
+		}
 
 		li {
 			display: grid;
@@ -901,6 +918,10 @@ footer {
 	gap: 15px;
 	align-items: center;
 
+	@include xl-screens() {
+		justify-content: center;
+	}
+
 	&--img {
 		width: 50px;
 	}
@@ -916,6 +937,10 @@ footer {
 
 .contact-info {
 	text-align: right;
+
+	@include xl-screens() {
+		text-align: center;
+	}
 }
 
 .copyright {
@@ -923,4 +948,8 @@ footer {
 	text-align: center;
 	font-size: 0.85rem;
 	font-weight: 700;
+
+	@include xl-screens() {
+		margin-top: 40px;
+	}
 }
