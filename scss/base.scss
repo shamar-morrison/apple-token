@@ -590,21 +590,6 @@ button {
 		color: #fff;
 		border-radius: $radius;
 		padding: 8px 0;
-
-		// &::before {
-		// 	content: '';
-		// 	position: absolute;
-		// 	top: 50%;
-		// 	left: -30px;
-		// 	transform: translateY(-50%) rotate(-90deg);
-
-		// 	width: 0px;
-		// 	height: 0px;
-		// 	border-top: 15px solid $primary-red;
-		// 	border-right: 15px solid transparent;
-		// 	border-bottom: 15px solid transparent;
-		// 	border-left: 15px solid transparent;
-		// }
 	}
 
 	.content {
@@ -645,6 +630,10 @@ button {
 		width: 5px;
 		border-radius: 50px;
 		transform: translateX(-50%);
+
+		@include xl-screens() {
+			display: none;
+		}
 	}
 
 	&__features {
@@ -653,8 +642,14 @@ button {
 		flex-direction: column;
 
 		img {
-			max-width: 40%;
 			width: 100%;
+			max-width: 40%;
+			min-width: 240px;
+
+			@include xl-screens() {
+				position: relative;
+				left: -35px;
+			}
 		}
 	}
 }
@@ -664,71 +659,118 @@ button {
 	gap: 150px;
 	align-items: center;
 
-	.feature-content {
+	@include xl-screens() {
+		gap: 10px;
+		flex-direction: column;
+	}
+
+	&.phase-two {
+		@include xl-screens() {
+			gap: 50px;
+			flex-direction: column-reverse;
+		}
+	}
+
+	&.phase-three {
+		@include xl-screens() {
+			gap: 55px;
+		}
+	}
+}
+
+.feature-content {
+	position: relative;
+	color: #fff;
+	padding: 40px;
+	background-color: $green;
+	border-radius: $radius;
+	min-width: 450px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 25%;
+		left: -80px;
+		width: 030px;
+		height: 0px;
+
+		@include triangle();
+
+		@include xl-screens() {
+			top: -17%;
+			left: 50%;
+			transform: translateX(-50%) rotate(90deg);
+		}
+	}
+
+	&.content-two {
 		position: relative;
-		color: #fff;
-		padding: 40px;
-		background-color: $green;
-		border-radius: $radius;
-		min-width: 450px;
 
 		&::after {
 			content: '';
+			display: none;
+		}
+
+		&::before {
+			content: '';
 			position: absolute;
 			top: 25%;
-			left: -80px;
+			right: -80px;
 			width: 030px;
 			height: 0px;
 
 			@include triangle();
-		}
+			transform: rotate(180deg);
 
-		&.content-two {
-			position: relative;
-
-			&::after {
-				content: '';
-				display: none;
-			}
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: 25%;
-				right: -80px;
-				width: 030px;
-				height: 0px;
-
-				@include triangle();
-				transform: rotate(180deg);
+			@include xl-screens() {
+				top: -18%;
+				right: 50%;
+				transform: translateX(50%) rotate(90deg);
 			}
 		}
 	}
+}
 
-	.feature-list {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
+.feature-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 .content-one {
 	position: relative;
 	top: 50px;
 	left: 8%;
+
+	@include xl-screens() {
+		left: 0;
+	}
 }
 
 .content-two {
 	margin-left: 50px;
+
+	@include xl-screens() {
+		margin-left: 0;
+	}
 }
 
 .content-three {
 	margin-left: 100px;
+
+	@include xl-screens() {
+		margin-left: 0;
+	}
 }
 
 .apple-phase-2 {
 	position: relative;
 	left: 6%;
+
+	@include xl-screens() {
+		left: 0;
+		margin-left: 0;
+	}
 }
 
 // FAQ
