@@ -686,6 +686,10 @@ button {
 	border-radius: $radius;
 	min-width: 450px;
 
+	@include xl-screens() {
+		min-width: 0;
+	}
+
 	&::after {
 		content: '';
 		position: absolute;
@@ -788,6 +792,10 @@ button {
 	width: 60%;
 	margin: 0 auto;
 
+	@include lg-screens() {
+		width: 100%;
+	}
+
 	&--title {
 		position: relative;
 		padding: 15px 40px;
@@ -796,6 +804,7 @@ button {
 		border-radius: $radius;
 		font-size: 1.35rem;
 		cursor: pointer;
+		line-height: 1.6;
 		// font-family: 'Montserrat Alternates', sans-serif;
 
 		&::before {
@@ -820,6 +829,10 @@ button {
 			font-size: 1rem;
 
 			@include font-awesome();
+
+			@media (max-width: 500px) {
+				left: 92%;
+			}
 		}
 	}
 
